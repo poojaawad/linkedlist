@@ -1,0 +1,51 @@
+//progaram to insert node at beg
+#include<stdio.h>
+#include<malloc.h>
+struct node
+{
+    int data;
+    struct node*next;
+
+};
+void linkedlistTraversal(struct node*ptr){
+    while(ptr!=NULL){
+        printf("Element:%d\n",ptr->data);
+
+        ptr=ptr->next;
+    }
+}
+
+struct node *insertAtfirst(struct node *head,int data){
+    struct node *ptr=(struct node*)malloc(sizeof(struct node));
+    ptr->next=head;
+    ptr->data=data;
+    head=ptr;
+    return head;
+}
+void main()
+{
+struct node*head;
+struct node*second;
+struct node*third;
+head=(struct node*)malloc(sizeof(struct node));
+second=(struct node*)malloc(sizeof(struct node));
+third=(struct node*)malloc(sizeof(struct node));
+head->data=7;
+head->next=second;
+second->data =11;
+second->next =third;
+third->data =13;
+third->next = NULL ;
+printf("element before adding new node\n");
+linkedlistTraversal(head);
+head=insertAtfirst(head ,35);
+printf("elements after adding new node\n");
+linkedlistTraversal(head);
+
+
+}
+
+
+
+
+
